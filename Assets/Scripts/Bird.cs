@@ -22,12 +22,7 @@ public class Bird : MonoBehaviour
     {
         if (isDead == false)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                rigid.velocity = Vector2.zero;
-                rigid.AddForce(new Vector2(0, upForce));
-                anim.SetTrigger("Flap");
-            }
+            Flap();
         }
     }
 
@@ -35,8 +30,19 @@ public class Bird : MonoBehaviour
     {
         if (col.gameObject.tag == "Ground")
         {
+            rigid.velocity = Vector2.zero;
             isDead = true;
             anim.SetTrigger("Die");
+        }
+    }
+
+    void Flap()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            rigid.velocity = Vector2.zero;
+            rigid.AddForce(new Vector2(0, upForce));
+            anim.SetTrigger("Flap");
         }
     }
 }
