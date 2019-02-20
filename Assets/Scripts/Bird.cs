@@ -26,16 +26,6 @@ public class Bird : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Ground")
-        {
-            rigid.velocity = Vector2.zero;
-            isDead = true;
-            anim.SetTrigger("Die");
-        }
-    }
-
     void Flap()
     {
         if (Input.GetMouseButtonDown(0))
@@ -44,5 +34,12 @@ public class Bird : MonoBehaviour
             rigid.AddForce(new Vector2(0, upForce));
             anim.SetTrigger("Flap");
         }
+    }
+
+    public void Die()
+    {
+        rigid.velocity = Vector2.zero;
+        isDead = true;
+        anim.SetTrigger("Die");
     }
 }
