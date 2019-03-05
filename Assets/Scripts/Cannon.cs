@@ -38,6 +38,14 @@ public class Cannon : MonoBehaviour
         // Clamp Z rotation between +90 and +20
 
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(GameManager.GM.gameStateStarted == false)
+            {
+                Fire();
+            }
+        }
+
         // Handle screen touches.
         if (Input.touchCount > 0)
         {
@@ -52,5 +60,16 @@ public class Cannon : MonoBehaviour
             }
 
         }
+    }
+
+
+    public void Fire()
+    {
+
+        Instantiate(Resources.Load("Prefabs/Bird") as GameObject);
+        GameManager.GM.gameStateStarted = true;
+
+
+        // Add initial velocity.
     }
 }
