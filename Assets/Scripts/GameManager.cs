@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
             GM = this;
             if(GM != this)
             {
-                Instantiate(Resources.Load("Prefabs/GM") as GameObject);
-                vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+                Instantiate(Resources.Load("Prefabs/GM") as GameObject);   
             }
 
             
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-       
+        vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
     }
 
     
@@ -60,7 +59,12 @@ public class GameManager : MonoBehaviour
     void CameraControls()
     {
         if(gameStateStarted == true)
-        vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-        // FIX THIS
+        {
+            vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+            vcam.m_Lens.OrthographicSize = (1 - 0.015f) * vcam.m_Lens.OrthographicSize + 0.015f * 35;
+
+        }
+
+
     }
 }

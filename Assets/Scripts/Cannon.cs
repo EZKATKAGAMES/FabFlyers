@@ -11,6 +11,10 @@ public class Cannon : MonoBehaviour
     float width;
     float height;
     float speed = 5f;
+
+    private Vector2 fireDirection;
+    private Transform fireLocation;
+
     private void Awake()
     {
         width = (float)Screen.width / 2.0f;
@@ -29,15 +33,23 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Cannon Look towards mouse position.
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+        fireLocation = GameObject.Find("FirePoint").transform;
 
-        // Clamp Z rotation between +90 and +20
+        if(GameManager.GM.gameStateStarted == false)
+        {
+            // Cannon Look towards mouse position.
+            Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+
+            // Clamp Z rotation between +90 and +20
 
 
+            fireDirection = direction;
+        }
+
+        // Fire the cannon when tapped.
         if (Input.GetMouseButtonDown(0))
         {
             if(GameManager.GM.gameStateStarted == false)
@@ -66,7 +78,7 @@ public class Cannon : MonoBehaviour
     public void Fire()
     {
 
-        Instantiate(Resources.Load("Prefabs/Bird") as GameObject);
+        Instantiate(Resources.Load("Prefabs/Bird"), fireLocation);
         GameManager.GM.gameStateStarted = true;
 
 

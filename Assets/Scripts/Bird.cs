@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
-    public float upForce = 400f;
+    public float upForce = 550f;
+    public float horizontalForce = 800f;
 
     private bool isDead = false;
     private Rigidbody2D rigid;
     private Animator anim;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        rigid.AddForce(new Vector2(1000, 200));
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDead == false)
+        // when we are alive and have the stamina, allow flapping.
+        if (isDead == false && GameManager.GM.stamina >= 20)
         {
             Flap();
         }
+
+        if(isDead == false)
+        PassiveMovement();
+    }
+
+    void PassiveMovement()
+    {
+        rigid.AddForce(new Vector2(horizontalForce / 150, 0));
     }
 
     void Flap()
@@ -31,8 +42,10 @@ public class Bird : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             rigid.velocity = Vector2.zero;
-            rigid.AddForce(new Vector2(0, upForce));
+            rigid.AddForce(new Vector2(horizontalForce, upForce));
             anim.SetTrigger("Flap");
+
+            GameManager.GM.stamina -= 20;
         }
     }
 
