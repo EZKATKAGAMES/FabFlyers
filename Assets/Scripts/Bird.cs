@@ -27,13 +27,8 @@ public class Bird : MonoBehaviour
         {
             Flap();
         }
-
-        
-      
     }
 
-   
-    
 
     void Flap()
     {

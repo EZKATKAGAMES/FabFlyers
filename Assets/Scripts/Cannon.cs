@@ -46,7 +46,6 @@ public class Cannon : MonoBehaviour
 
             // Clamp Z rotation between +90 and +20
 
-
             fireDirection = direction;
         }
 

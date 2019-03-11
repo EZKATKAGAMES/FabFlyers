@@ -8,16 +8,18 @@ public class GameManager : MonoBehaviour
     public static GameManager GM = null;
     public CinemachineVirtualCamera vcam;
     public bool gameStateStarted = false;
-
+    public Transform parentTransform;
     public ScrollingGround[] scrollingGround;
 
     public float stamina = 100;
     private Transform fireLocation;
-
+    private Vector3 fireLocationVector;
 
     private void Awake()
     {
-        if(GM == null)
+        parentTransform = GameObject.Find("[Group]Ground").transform;
+
+        if (GM == null)
         {
             GM = this;
             if(GM != this)
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
-       // scrollingGround = GameObject.Find("Ground Ship").GetComponent<ScrollingGround>();
+       
         scrollingGround = FindObjectsOfType<ScrollingGround>();
     }
 
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
 
 
         fireLocation = GameObject.Find("FirePoint").transform;
+        fireLocationVector = fireLocation.position;
 
         if (gameStateStarted == true)
         {
@@ -72,8 +75,8 @@ public class GameManager : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(Resources.Load("Prefabs/Bird"), fireLocation);
-        GameManager.GM.gameStateStarted = true;
+        Instantiate(Resources.Load("Prefabs/Bird"), fireLocationVector, Quaternion.identity ,parentTransform);
+        gameStateStarted = true;
         scrollingGround[0].enabled = true;
         scrollingGround[1].enabled = true;
         scrollingGround[2].enabled = true;
