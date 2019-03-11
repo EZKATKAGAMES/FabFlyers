@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        rigid.AddForce(new Vector2(1000, 200));
+        
     }
 
     void Update()
@@ -28,21 +28,19 @@ public class Bird : MonoBehaviour
             Flap();
         }
 
-        if(isDead == false)
-        PassiveMovement();
+        
+      
     }
 
-    void PassiveMovement()
-    {
-        rigid.AddForce(new Vector2(horizontalForce / 150, 0));
-    }
+   
+    
 
     void Flap()
     {
         if (Input.GetMouseButtonDown(0))
         {
             rigid.velocity = Vector2.zero;
-            rigid.AddForce(new Vector2(horizontalForce, upForce));
+            rigid.AddForce(new Vector2(0, upForce));
             anim.SetTrigger("Flap");
 
             GameManager.GM.stamina -= 20;

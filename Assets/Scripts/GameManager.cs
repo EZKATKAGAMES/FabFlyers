@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
     public CinemachineVirtualCamera vcam;
     public bool gameStateStarted = false;
 
+    public ScrollingGround[] scrollingGround;
+
     public float stamina = 100;
+    private Transform fireLocation;
 
 
     private void Awake()
@@ -29,18 +32,51 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
+       // scrollingGround = GameObject.Find("Ground Ship").GetComponent<ScrollingGround>();
+        scrollingGround = FindObjectsOfType<ScrollingGround>();
     }
 
-    
-    void Update()
+    private void FixedUpdate()
     {
         CameraControls();
+    }
 
-        if(gameStateStarted == true)
+    void Update()
+    {
+
+        if(gameStateStarted == false)
+        {
+            scrollingGround[0].enabled = false;
+            scrollingGround[1].enabled = false;
+            scrollingGround[2].enabled = false;
+        }
+
+
+        fireLocation = GameObject.Find("FirePoint").transform;
+
+        if (gameStateStarted == true)
         {
             ReduceStamina();
         }
-        
+
+        // Fire the cannon when tapped.
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (gameStateStarted == false)
+            {
+                Fire();
+            }
+        }
+    }
+
+
+    public void Fire()
+    {
+        Instantiate(Resources.Load("Prefabs/Bird"), fireLocation);
+        GameManager.GM.gameStateStarted = true;
+        scrollingGround[0].enabled = true;
+        scrollingGround[1].enabled = true;
+        scrollingGround[2].enabled = true;
     }
 
     void ReduceStamina()
@@ -61,7 +97,8 @@ public class GameManager : MonoBehaviour
         if(gameStateStarted == true)
         {
             vcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
-            vcam.m_Lens.OrthographicSize = (1 - 0.015f) * vcam.m_Lens.OrthographicSize + 0.015f * 35;
+            // Lerp to desired orthographic size (zoom out)
+            vcam.m_Lens.OrthographicSize = (1 - 0.015f) * vcam.m_Lens.OrthographicSize + 0.015f * 20;
 
         }
 

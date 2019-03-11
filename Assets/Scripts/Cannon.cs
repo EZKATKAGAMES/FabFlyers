@@ -13,7 +13,7 @@ public class Cannon : MonoBehaviour
     float speed = 5f;
 
     private Vector2 fireDirection;
-    private Transform fireLocation;
+   
 
     private void Awake()
     {
@@ -22,9 +22,10 @@ public class Cannon : MonoBehaviour
 
         rotation = Quaternion.identity;
 
+        
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
 
@@ -33,7 +34,7 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fireLocation = GameObject.Find("FirePoint").transform;
+       
 
         if(GameManager.GM.gameStateStarted == false)
         {
@@ -49,15 +50,7 @@ public class Cannon : MonoBehaviour
             fireDirection = direction;
         }
 
-        // Fire the cannon when tapped.
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(GameManager.GM.gameStateStarted == false)
-            {
-                Fire();
-            }
-        }
-
+       
         // Handle screen touches.
         if (Input.touchCount > 0)
         {
@@ -66,22 +59,10 @@ public class Cannon : MonoBehaviour
             // Aim cannon towards touchpoint.
             if (touch.phase == TouchPhase.Moved)
             {
-                // AIM is to match cannon Z rotation with touch screen Y position.
-
+                // AIM is to match cannon Z rotation with touch screen Y position
 
             }
 
         }
-    }
-
-
-    public void Fire()
-    {
-
-        Instantiate(Resources.Load("Prefabs/Bird"), fireLocation);
-        GameManager.GM.gameStateStarted = true;
-
-
-        // Add initial velocity.
     }
 }
