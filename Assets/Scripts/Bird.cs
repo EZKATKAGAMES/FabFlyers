@@ -10,7 +10,6 @@ public class Bird : MonoBehaviour
     private bool isDead = false;
     private Rigidbody2D rigid;
     private Animator anim;
-
     
     void Start()
     {
