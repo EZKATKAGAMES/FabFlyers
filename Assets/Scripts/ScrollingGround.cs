@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScrollingGround : MonoBehaviour
 {
-    public float scrollSpeed = -1.5f;
+    public float scrollSpeed = -5f;
 
     // Update is called once per frame
     void Update()

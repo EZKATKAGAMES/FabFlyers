@@ -1433,6 +1433,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b78c14d603a16646a22b14363216653, type: 3}
+--- !u!1 &1647583449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7347685584882442470, guid: 9b78c14d603a16646a22b14363216653,
+    type: 3}
+  m_PrefabInstance: {fileID: 1647583448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1647583450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647583449}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9285d6c52a9649147a9c56f90fb60e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPoolSize: 5
+  orcaPrefab: {fileID: 1693816372185163897, guid: 5d0a6e2f356e3fa4184e29583a3012bb,
+    type: 3}
+  spawnRate: 4
+  coluumnMin: -1
+  columnMax: 3.5
 --- !u!1 &1714993503
 GameObject:
   m_ObjectHideFlags: 0

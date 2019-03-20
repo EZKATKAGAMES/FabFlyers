@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool gameStateStarted = false;
     public Transform parentTransform;
     public ScrollingGround[] scrollingGround;
+    public OrcaEnemyPool orcaEnemyPool;
 
     public float stamina = 100;
     private Transform fireLocation;
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour
         vcam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>();
        
         scrollingGround = FindObjectsOfType<ScrollingGround>();
+        orcaEnemyPool = FindObjectOfType<OrcaEnemyPool>();
+
+        orcaEnemyPool.enabled = false;
     }
 
     private void FixedUpdate()
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
         if (gameStateStarted == true)
         {
             ReduceStamina();
+            orcaEnemyPool.enabled = true;
         }
 
         // Fire the cannon when tapped.
