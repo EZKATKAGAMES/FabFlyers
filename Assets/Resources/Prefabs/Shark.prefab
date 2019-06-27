@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &516579397465441488
+--- !u!1 &1693816372185163897
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5391411469836433415}
-  - component: {fileID: 7275177649374140364}
-  - component: {fileID: 1722073851028265712}
-  - component: {fileID: 8637335817352999657}
+  - component: {fileID: 1693816372185163903}
+  - component: {fileID: 1693816372185163902}
+  - component: {fileID: 974076375712006852}
+  - component: {fileID: 1586232180}
   m_Layer: 0
-  m_Name: Orca Enemy
+  m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5391411469836433415
+--- !u!4 &1693816372185163903
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516579397465441488}
+  m_GameObject: {fileID: 1693816372185163897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.72, y: -1.924734, z: -0.0703125}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 8.27, y: -1.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7876138549717442354}
+  - {fileID: 1693816372237451358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7275177649374140364
+--- !u!61 &1693816372185163902
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516579397465441488}
+  m_GameObject: {fileID: 1693816372185163897}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7, y: -16.47}
+  m_Offset: {x: -3.92, y: -9.24}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,34 +58,34 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.04, y: 19.55}
+  m_Size: {x: 5.21, y: 7.26}
   m_EdgeRadius: 0
---- !u!114 &1722073851028265712
+--- !u!114 &974076375712006852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516579397465441488}
+  m_GameObject: {fileID: 1693816372185163897}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72723b2a7fc6d7c4eb77b715d7788ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: -5
---- !u!114 &8637335817352999657
+--- !u!114 &1586232180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516579397465441488}
+  m_GameObject: {fileID: 1693816372185163897}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe7dc0dc5c1483f459ff0431e48f31f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7538062956048745320
+--- !u!1 &1693816372237451353
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,36 +93,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7876138549717442354}
-  - component: {fileID: 403419932167943634}
+  - component: {fileID: 1693816372237451358}
+  - component: {fileID: 1693816372237451359}
   m_Layer: 0
-  m_Name: openmouthorca2
+  m_Name: Shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7876138549717442354
+--- !u!4 &1693816372237451358
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7538062956048745320}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -6.8, y: -16.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1693816372237451353}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9659259, w: -0.25881898}
+  m_LocalPosition: {x: -3.983798, y: -9.16, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 5391411469836433415}
+  m_Father: {fileID: 1693816372185163903}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!212 &403419932167943634
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 210}
+--- !u!212 &1693816372237451359
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7538062956048745320}
+  m_GameObject: {fileID: 1693816372237451353}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -153,12 +153,12 @@ SpriteRenderer:
   m_SortingLayerID: -297801291
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e8ddf838ecd20b642aed1adbe2e705ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85e4221879d93614d898f1029d656b13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 3, y: 3.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

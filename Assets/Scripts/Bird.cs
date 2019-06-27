@@ -37,8 +37,13 @@ public class Bird : MonoBehaviour
             rigid.AddForce(new Vector2(0, upForce));
             anim.SetTrigger("Flap");
 
-            GameManager.GM.stamina -= 20;
+            ReduceStamina();
         }
+    }
+
+    public void ReduceStamina()
+    {
+        GameManager.GM.stamina -= 2f;
     }
 
     public void Die()
