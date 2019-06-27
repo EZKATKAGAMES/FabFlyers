@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     public void Fire()
     {
-        Instantiate(Resources.Load("Prefabs/Bird"), fireLocationVector, Quaternion.identity ,parentTransform);
+        Instantiate(Resources.Load("Sprites/Puffin Model/puffin01mid"), fireLocationVector, Quaternion.identity ,parentTransform);
         gameStateStarted = true;
         scrollingGround[0].enabled = true;
         scrollingGround[1].enabled = true;
